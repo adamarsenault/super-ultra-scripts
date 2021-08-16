@@ -1,0 +1,5 @@
+$TLD = 'REPLACE_WITH_COMMON_NAME'
+$CertPassword = 'REPLACE_WITH_PASSWORD'
+openssl pkcs12 -in $TLD'.pfx' -nocerts -nodes -passin pass:$CertPassword -out $TLD'.priv.pem'
+openssl pkcs12 -in $TLD'.pfx' -nokeys -clcerts -nodes -passin pass:$CertPassword -out $TLD'.pem'
+openssl pkcs12 -in $TLD'.pfx' -nokeys -nodes -passin pass:$CertPassword -out $TLD'.chain.pem'

@@ -18,7 +18,7 @@ if ((choco config get cacheLocation))
                 & choco install $app /y  | Write-Host
             }
     } catch {
-        Write-Error -Message "$app failed to install."
+        "An error has occurred when installing applications. Review choco logs."
     }
 }
 else

@@ -1,7 +1,6 @@
 googlechrome
 firefox
 adobereader
-flashplayerplugin
 flashplayeractivex
 javaruntime
 vcredist140
@@ -9,7 +8,7 @@ notepadplusplus.install
 7zip.install
 greenshot
 ditto
-python3
+python
 pip
 wsl2
 wsl-ubuntu-2004

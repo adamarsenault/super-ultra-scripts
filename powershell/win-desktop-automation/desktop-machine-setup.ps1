@@ -1,3 +1,6 @@
+## Desktop Automation Script for Personal Use
+## Inspiration from: https://octopus.com/blog/automate-developer-machine-setup-with-chocolatey
+
 $appspath = $PSScriptRoot + '\' + 'desktop-machine-apps.txt'
 $apps = Get-Content -Path $appspath
 

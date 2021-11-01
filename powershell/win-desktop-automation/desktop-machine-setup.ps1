@@ -11,9 +11,15 @@ else
     Write-Host "Chocolatey dectected, attempting to install applications from config file."
 }
 
-foreach ($app in $apps)
+if ((choco config get cacheLocation))
 {
-    Write-Host "Installing $app"
-    & choco install $app /y  | Write-Host
+    try {  
+        foreach ($app in $apps)
+        {
+            Write-Host "Installing $app"
+            & choco install $app /y  | Write-Host
+        }
+    } catch {
+        Write-Error -Message "$app failed to install."
+    }
 }
-

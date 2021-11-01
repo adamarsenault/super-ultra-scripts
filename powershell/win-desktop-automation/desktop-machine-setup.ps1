@@ -21,7 +21,7 @@ if ((choco config get cacheLocation))
                 & choco install $app /y  | Write-Host
             }
     } catch {
-        "An error has occurred when installing applications. Review choco logs."
+        "An error has occurred when installing applications. Review choco logs C:\ProgramData\chocolatey\logs\chocolatey.log."
     }
 }
 else

@@ -9,6 +9,7 @@ notepadplusplus.install
 greenshot
 ditto
 python
+pyenv-win
 pip
 wsl2
 wsl-ubuntu-2004

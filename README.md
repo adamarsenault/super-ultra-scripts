@@ -18,10 +18,12 @@ The [Git for Windows](https://gitforwindows.org/) installation includes OpenSSL;
 2. Install powerlevel9k plugin
  - `git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k`
 3. Install [Powerline fonts](http://iamnotmyself.com/2017/04/15/setting-up-powerline-shell-on-windows-subsystem-for-linux/) using PowerShell
- - `git clone https://github.com/powerline/fonts.git`
- - cd fonts
- - ./install.ps1
- - cd ..;rm -r -for ./fonts
+ ```
+ git clone https://github.com/powerline/fonts.git
+ cd fonts
+ ./install.ps1
+ cd ..;rm -r -for ./fonts
+ ```
 4. Note: Will have to confirm installation as the script runs
 5. Click the Ubuntu icon in the top left corner > properties > Font > Deja Vu Sans Mono for Powerline (18 point)
 6. Edit the .zshrc file to configure plugins

@@ -78,7 +78,7 @@ if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -
 Delete local branches that have been merged:
 
 * Powershell:
-    *`git branch --merged | %{$_.trim()}  | ?{$_ -notmatch 'dev' -and $_ -notmatch 'master' -and $_ -notmatch 'main'} | %{git branch -d $_}`
+    * `git branch --merged | %{$_.trim()}  | ?{$_ -notmatch 'dev' -and $_ -notmatch 'master' -and $_ -notmatch 'main'} | %{git branch -d $_}`
 
 * Linux: 
     * `git branch --merged | egrep -v "(^\*|master|main|dev)" | xargs git branch -d`

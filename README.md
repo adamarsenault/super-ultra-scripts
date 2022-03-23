@@ -1,11 +1,73 @@
 # super-ultra-scripts
-## Misc Notes
+## Mac Configuration
+
+### Setup 
+Eventually will script out, recording here for now.
+
+1. Install ohmyzsh:
+   - `sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"`
+3. Install homebrew:
+   - `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
+4. Install casks:
+   - `brew install --cask visual-studio-code firefox dbeaver-community iterm2 spotify`
+5. Install formulae
+   - `brew install --formulae tmux pyenv pyenv-virtualenv`
+6. Install AWS CLI
+   - `curl "https://awscli.amazonaws.com/AWSCLIV2.pkg" -o "AWSCLIV2.pkg"\nsudo installer -pkg AWSCLIV2.pkg -target`
+7. Enable synatax highlighting in vim
+   - `echo "synxtax on" > ~/.vimrc`
+
+####  Zsh Configuration
+
+1. Install zsh-autosuggestions:
+   - `git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions`
+2. Install Powerline fonts:
+     ```
+      # clone
+      git clone https://github.com/powerline/fonts.git --depth=1
+      # install
+      cd fonts
+      ./install.sh
+      # clean-up a bit
+      cd ..
+      rm -rf fonts```
+3. Edit .zshrc with configurations:
+   - Update Autosuggest highlight color when using Solarized color theme:
+      - `echo "ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=23'" >> ~/.zshrc` 
+   - pyenv configuration:
+    ```
+    tee -a ~/.zshrc << END
+    # pyenv
+    export PYENV_ROOT="$HOME/.pyenv"
+    export PATH="$PYENV_ROOT/shims:$PATH"
+    if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
+    #if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi    
+    END
+    ```
+   - Enable plugins / set profile
+     - ZSH_THEME="agnoster"
+     - plugins=(colorize colored-man-pages copyfile git jsontools zsh-autosuggestions)
+4. iTerm2 settings with agnoster theme:
+   - Colors: Solarized (Dark)
+   - Font: DejaVu Sans Mono for Powerline
+
+#### Misc
+1. Download the following from the Apple Store:
+   - BetterSnapTool
+   - Pasta: https://getpasta.com/
+
+### Git Foo
+Delete local branches that have been merged:
+* Linux: 
+    * `git branch --merged | egrep -v "(^\*|master|main|dev|test|prod)" | xargs git branch -d`
+
+## Windows Configuration
 
 ###### Open SSL Installation
 The [Git for Windows](https://gitforwindows.org/) installation includes OpenSSL; to call it within command prompt or PowerShell, we can add that location to the PATH environment variable. 
 
 1. Adding the Git for Windows Bin directory to Windows PATH
- - `$env:Path += ";C:\Program Files\Git\usr\bin\"`
+   - `$env:Path += ";C:\Program Files\Git\usr\bin\"`
 2. Close/Reopen CMD Prompt or PowerShell
 3. Type openssl and press Enter; this should no longer produce an error message
 
@@ -27,11 +89,11 @@ The [Git for Windows](https://gitforwindows.org/) installation includes OpenSSL;
 4. Note: Will have to confirm installation as the script runs
 5. Click the Ubuntu icon in the top left corner > properties > Font > Deja Vu Sans Mono for Powerline (18 point)
 6. Edit the .zshrc file to configure plugins
- - `vim ~/.zshrc`
+   - `vim ~/.zshrc`
 7. At the time of writing I am only using:
- - `plugins=(git)`
+   - `plugins=(git)`
 8. Configure git
- - `git config --global credential.helper store`
+   - `git config --global credential.helper store`
 9. Syntax highlighting (confirm this works?)
 ```wget https://github.com/trapd00r/zsh-syntax-highlighting-filetypes/blob/master/zsh-syntax-highlighting-filetypes.zsh
 mv zsh-syntax-highlighting-filetypes.zsh zsh-syntax-highlighting-filetypes.plugin.zsh
@@ -78,7 +140,4 @@ if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -
 Delete local branches that have been merged:
 
 * Powershell:
-    * `git branch --merged | %{$_.trim()}  | ?{$_ -notmatch 'dev' -and $_ -notmatch 'master' -and $_ -notmatch 'main'} | %{git branch -d $_}`
-
-* Linux: 
-    * `git branch --merged | egrep -v "(^\*|master|main|dev)" | xargs git branch -d`
+  * `git branch --merged | %{$_.trim()}  | ?{$_ -notmatch 'dev' -and $_ -notmatch 'master' -and $_ -notmatch 'main'} | %{git branch -d $_}`

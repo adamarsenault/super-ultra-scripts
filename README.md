@@ -30,7 +30,8 @@ Eventually will script out, recording here for now.
       ./install.sh
       # clean-up a bit
       cd ..
-      rm -rf fonts```
+      rm -rf fonts
+      ```
 3. Edit .zshrc with configurations:
    - Update Autosuggest highlight color when using Solarized color theme:
       - `echo "ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=23'" >> ~/.zshrc` 

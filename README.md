@@ -142,3 +142,8 @@ Delete local branches that have been merged:
 
 * Powershell:
   * `git branch --merged | %{$_.trim()}  | ?{$_ -notmatch 'dev' -and $_ -notmatch 'master' -and $_ -notmatch 'main'} | %{git branch -d $_}`
+
+## Misc
+
+* Regenerate public rsa keys:
+* `ssh-keygen -f ~/.ssh/id_rsa -y > ~/.ssh/id_rsa.pub`

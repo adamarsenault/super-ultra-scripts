@@ -146,4 +146,4 @@ Delete local branches that have been merged:
 ## Misc
 
 * Regenerate public rsa keys:
-* `ssh-keygen -f ~/.ssh/id_rsa -y > ~/.ssh/id_rsa.pub`
+  * `ssh-keygen -f ~/.ssh/id_rsa -y > ~/.ssh/id_rsa.pub`
